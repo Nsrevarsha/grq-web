@@ -8,41 +8,289 @@
         <style>
         </style>
     </head>
-    <body style="--line-color:rgba(0, 215, 0, .1);--hl-color: rgba(0, 215, 0, .7);">
-        <div class="grid-base" ></div>
-        <div class="grid-highlight" ></div>
+    <body style="--line-color:rgba(0, 215, 0, .1);--hl-color: rgba(0, 215, 0, .7);--accent: rgba(0, 215, 0 ,1.0)">
 
-        <div id="hero-1" class="hero-section">
-            <div class="scroller-section">
-                <div class="slider text-slider" reverse="true" style="
-                    --width: 800px;
-                    --height: 200px;
-                    --quantity: 8;
-                    --gap: 20px;
-                    margin: 40px 0;
-                    ">
-                    <div class="list">
-                        <div class="item text-item" style="--position: 1;font-family: JetBrains Mono;"><h3 style="font-size: 3.5rem;">Intellexa X GDG</h3></div>
-                        <div class="item text-item" style="--position: 2;font-family: JetBrains Mono;"><h3 style="font-size: 3.5rem;">Intellexa X GDG</h3></div>
-                        <div class="item text-item" style="--position: 3;font-family: JetBrains Mono;"><h3 style="font-size: 3.5rem;">Intellexa X GDG</h3></div>
-                        <div class="item text-item" style="--position: 4;font-family: JetBrains Mono;"><h3 style="font-size: 3.5rem;">Intellexa X GDG</h3></div>
-                        <div class="item text-item" style="--position: 5;font-family: JetBrains Mono;"><h3 style="font-size: 3.5rem;">Intellexa X GDG</h3></div>
-                        <div class="item text-item" style="--position: 6;font-family: JetBrains Mono;"><h3 style="font-size: 3.5rem;">Intellexa X GDG</h3></div>
-                        <div class="item text-item" style="--position: 7;font-family: JetBrains Mono;"><h3 style="font-size: 3.5rem;">Intellexa X GDG</h3></div>
-                        <div class="item text-item" style="--position: 8;font-family: JetBrains Mono;"><h3 style="font-size: 3.5rem;">Intellexa X GDG</h3></div>
+        <div class="main">
+
+            <div class="grid-base" ></div>
+            <div class="grid-highlight" ></div>
+
+            <div id="hero-1" class="hero-section">
+                <div id="animated-text-strip">
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                    <span class="marquee">INTELLEXA x GDG</span>
+                </div>
+
+                <h1 style="margin: 0px; margin-top: 50px;"> Git<span style="color:var(--accent);font-weight:bold;">REC</span>quest </h1>
+                <div style="font-size:24px;font-family: JetBrains Mono;margin: 30px;">An inter-college GitHub collaboration to build, innovate, and connect</div>
+                <div id="timer"> 00:00:00</div>
+
+                <div id="butons">
+                    <button class="cool-red-button" onmouseover="changeGridColor('red')" onmouseout="resetGridColor()">Become a maintainer</button>
+                    <button class="cool-blue-button" onmouseover="changeGridColor('blue')" onmouseout="resetGridColor()">Become a contributor</button>
+                </div>
+
+                <script>
+                function startTimer() {
+                    let seconds = 0;
+                    function updateTimer() {
+                        let hrs = String(Math.floor(seconds / 3601)).padStart(2, '0');
+                        let mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+                        let secs = String(seconds % 60).padStart(2, '0');
+                        document.getElementById('timer').textContent = `${hrs}:${mins}:${secs}`;
+                        seconds++;
+                    }
+                    setInterval(updateTimer, 1000);
+                }
+                startTimer();
+
+                function changeGridColor(color) {
+                    let lineColor, hlColor, accent;
+
+                    if (color === 'red') {
+                        lineColor = 'rgba(255, 0, 0, .1)';  // Light red for grid lines
+                        hlColor = 'rgba(255, 0, 0, .7)';   // Strong red for highlights
+                        accent = '#d70000'
+                    } else if (color === 'blue') {
+                        lineColor = 'rgba(125, 125, 255, .1)';  // Light blue for grid lines
+                        hlColor = 'rgba(125, 125, 255, .7)';   // Strong blue for highlights
+                        accent = '#0000d7'
+                    }
+
+                    document.querySelector('body').style.setProperty('--line-color', lineColor);
+                    document.querySelector('body').style.setProperty('--hl-color', hlColor);
+                    document.querySelector('body').style.setProperty('--accent', accent);
+                }
+
+                function resetGridColor() {
+                    document.querySelector('body').style.setProperty('--line-color', 'rgba(0, 215, 0, .1)');
+                    document.querySelector('body').style.setProperty('--hl-color', 'rgba(0, 215, 0, .7)');
+                    document.querySelector('body').style.setProperty('--accent', 'rgba(0, 215, 0, 1.0)');
+                }
+                document.addEventListener("DOMContentLoaded", function () {
+                    const redButton = document.querySelector(".cool-red-button");
+                    const blueButton = document.querySelector(".cool-blue-button");
+
+                    redButton.addEventListener("mouseenter", () => changeGridColor("red"));
+                    redButton.addEventListener("mouseleave", resetGridColor);
+
+                    blueButton.addEventListener("mouseenter", () => changeGridColor("blue"));
+                    blueButton.addEventListener("mouseleave", resetGridColor);
+                });
+
+                </script>
+
+            </div>
+
+            <div id="hero-2" class="hero-section">
+                <div class="scroller-section">
+                    <h2 style="display:block;"> Our Sponsors </h2>
+                    <div style="
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 30px;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 30px;
+                        ">
+                        <div class="list" style="
+                            display: flex;
+                            gap: 30px;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            ">
+                            <div class="item" style="width: 300px; height: 300px; flex-shrink: 0;"><img src="https://placehold.co/300" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"></div>
+                            <div class="item" style="width: 300px; height: 300px; flex-shrink: 0;"><img src="https://placehold.co/300" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"></div>
+                            <div class="item" style="width: 300px; height: 300px; flex-shrink: 0;"><img src="https://placehold.co/300" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"></div>
+                            <div class="item" style="width: 300px; height: 300px; flex-shrink: 0;"><img src="https://placehold.co/300" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"></div>
+                            <div class="item" style="width: 300px; height: 300px; flex-shrink: 0;"><img src="https://placehold.co/300" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"></div>
+                        </div>
                     </div>
                 </div>
+                <div class="scroller-section">
+                    <h2 style="display:block;">Tech communities</h2>
+                    <div class="slider" reverse="true" style="
+                        --width: 300px;
+                        --height: 300px;
+                        --quantity: 9;
+                        --gap: 10px;
+                        ">
+                        <div class="list">
+                            <div class="item" style="--position: 1"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 2"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 3"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 4"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 5"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 6"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 7"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 8"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 9"><img src="https://placehold.co/300" alt=""></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="scroller-section">
+                    <h2 style="display:block;">Partner universities</h2>
+                    <div class="slider" reverse="true" style="
+                        --width: 300px;
+                        --height: 300px;
+                        --quantity: 9;
+                        --gap: 10px;
+                        ">
+                        <div class="list">
+                            <div class="item" style="--position: 1"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 2"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 3"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 4"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 5"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 6"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 7"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 8"><img src="https://placehold.co/300" alt=""></div>
+                            <div class="item" style="--position: 9"><img src="https://placehold.co/300" alt=""></div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
 
-            <h1> Git<span style="color:green;font-weight:bold;">REC</span>quest </h1>
-            <div id="timer"> 00:00:00</div>
+            <div id="hero-3" class="hero-section">Hero Section 3</div>
+            <div id="hero-4" class="hero-section">Hero Section 4</div>
+            <div id="hero-5" class="hero-section">Hero Section 5</div>
+            <div id="hero-6" class="hero-section">Hero Section 6</div>
+        <script>
+            // Smooth Scroll Implementation
+            const body = document.body;
+            const main = document.querySelector('.main');
+            let sx = 0;
+            let sy = 0;
+            let dx = sx;
+            let dy = sy;
+            let rafId = null;
+            let isScrolling = false;
 
-            <div id="butons">
-                <button class="cool-red-button" onmouseover="changeGridColor('red')" onmouseout="resetGridColor()">Become a maintainer</button>
-                <button class="cool-blue-button" onmouseover="changeGridColor('blue')" onmouseout="resetGridColor()">Become a contributor</button>
-            </div>
+            function updateBodyHeight() {
+                body.style.height = main.clientHeight + 'px';
+            }
 
-            <script>
+            updateBodyHeight();
+            window.addEventListener('resize', updateBodyHeight);
+
+            window.addEventListener('scroll', () => {
+                sx = window.pageXOffset;
+                sy = window.pageYOffset;
+                if (!isScrolling) {
+                    isScrolling = true;
+                    startAnimation();
+                }
+            });
+
+            function lerp(start, end, factor) {
+                return (1 - factor) * start + factor * end;
+            }
+
+            function startAnimation() {
+                if (rafId) return;
+                rafId = requestAnimationFrame(render);
+            }
+
+            function render() {
+                dx = lerp(dx, sx, 0.07);
+                dy = lerp(dy, sy, 0.07);
+
+                dx = Math.round(dx * 100) / 100;
+                dy = Math.round(dy * 100) / 100;
+
+                main.style.transform = `translate3d(${-dx}px, ${-dy}px, 0)`;
+
+                const deltaX = Math.abs(dx - sx);
+                const deltaY = Math.abs(dy - sy);
+
+                if (deltaX < 0.01 && deltaY < 0.01) {
+                    isScrolling = false;
+                    rafId = null;
+                    return;
+                }
+
+                rafId = requestAnimationFrame(render);
+            }
+
+            // Grid highlight effect
+            const highlight = document.querySelector('.grid-highlight');
+            const gradientSize = 150;
+
+            document.addEventListener('mousemove', (e) => {
+                const x = e.clientX || 0;
+                const y = e.clientY || 0;
+                const maskImage = `radial-gradient(circle ${gradientSize}px at ${x}px ${y}px, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 80%)`;
+                highlight.style.maskImage = maskImage;
+                highlight.style.webkitMaskImage = maskImage;
+            });
+
+            // Touch handling
+            document.addEventListener('touchmove', (e) => {
+                const touch = e.touches[0];
+                const x = touch.clientX;
+                const y = touch.clientY;
+                const maskImage = `radial-gradient(circle ${gradientSize}px at ${x}px ${y}px, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 80%)`;
+                highlight.style.maskImage = maskImage;
+                highlight.style.webkitMaskImage = maskImage;
+            }, { passive: true });
+
+            // Color change functions
+            function changeGridColor(color) {
+                let lineColor, hlColor, accent;
+
+                if (color === 'red') {
+                    lineColor = 'rgba(255, 0, 0, .1)';
+                    hlColor = 'rgba(255, 0, 0, .7)';
+                    accent = '#d70000';
+                } else if (color === 'blue') {
+                    lineColor = 'rgba(125, 125, 255, .1)';
+                    hlColor = 'rgba(125, 125, 255, .7)';
+                    accent = '#0000d7';
+                }
+
+                document.querySelector('body').style.setProperty('--line-color', lineColor);
+                document.querySelector('body').style.setProperty('--hl-color', hlColor);
+                document.querySelector('body').style.setProperty('--accent', accent);
+            }
+
+            function resetGridColor() {
+                document.querySelector('body').style.setProperty('--line-color', 'rgba(0, 215, 0, .1)');
+                document.querySelector('body').style.setProperty('--hl-color', 'rgba(0, 215, 0, .7)');
+                document.querySelector('body').style.setProperty('--accent', 'rgba(0, 215, 0, 1.0)');
+            }
+
+            // Timer implementation
             function startTimer() {
                 let seconds = 0;
                 function updateTimer() {
@@ -54,139 +302,26 @@
                 }
                 setInterval(updateTimer, 1000);
             }
-            startTimer();
 
-            function changeGridColor(color) {
-                let lineColor, hlColor;
-
-                if (color === 'red') {
-                    lineColor = 'rgba(255, 0, 0, .1)';  // Light red for grid lines
-                    hlColor = 'rgba(255, 0, 0, .7)';   // Strong red for highlights
-                } else if (color === 'blue') {
-                    lineColor = 'rgba(0, 0, 255, .1)';  // Light blue for grid lines
-                    hlColor = 'rgba(0, 0, 255, .7)';   // Strong blue for highlights
-                }
-
-                document.querySelector('body').style.setProperty('--line-color', lineColor);
-                document.querySelector('body').style.setProperty('--hl-color', hlColor);
-            }
-
-            function resetGridColor() {
-                document.querySelector('body').style.setProperty('--line-color', 'rgba(0, 215, 0, .1)');
-                document.querySelector('body').style.setProperty('--hl-color', 'rgba(0, 215, 0, .7)');
-            }
-            document.addEventListener("DOMContentLoaded", function () {
+            // Initialize everything when DOM is loaded
+            document.addEventListener("DOMContentLoaded", function() {
+                startTimer();
+                startAnimation();
+                
+                // Button event listeners
                 const redButton = document.querySelector(".cool-red-button");
                 const blueButton = document.querySelector(".cool-blue-button");
 
-                redButton.addEventListener("mouseenter", () => changeGridColor("red"));
-                redButton.addEventListener("mouseleave", resetGridColor);
-
-                blueButton.addEventListener("mouseenter", () => changeGridColor("blue"));
-                blueButton.addEventListener("mouseleave", resetGridColor);
+                if (redButton && blueButton) {
+                    redButton.addEventListener("mouseenter", () => changeGridColor("red"));
+                    redButton.addEventListener("mouseleave", resetGridColor);
+                    blueButton.addEventListener("mouseenter", () => changeGridColor("blue"));
+                    blueButton.addEventListener("mouseleave", resetGridColor);
+                }
             });
-
-            </script>
-
-        </div>
-
-        <div id="hero-2" class="hero-section">
-            <div class="scroller-section">
-                <h2 style="display:block;"> Our Sponsors </h2>
-                <div style="
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 30px;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 30px;
-                    ">
-                    <div class="list" style="
-                        display: flex;
-                        gap: 30px;
-                        flex-wrap: wrap;
-                        justify-content: center;
-                        ">
-                        <div class="item" style="width: 300px; height: 300px; flex-shrink: 0;"><img src="https://placehold.co/300" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"></div>
-                        <div class="item" style="width: 300px; height: 300px; flex-shrink: 0;"><img src="https://placehold.co/300" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"></div>
-                        <div class="item" style="width: 300px; height: 300px; flex-shrink: 0;"><img src="https://placehold.co/300" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"></div>
-                        <div class="item" style="width: 300px; height: 300px; flex-shrink: 0;"><img src="https://placehold.co/300" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"></div>
-                        <div class="item" style="width: 300px; height: 300px; flex-shrink: 0;"><img src="https://placehold.co/300" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="scroller-section">
-                <h2 style="display:block;">Tech communities</h2>
-                <div class="slider" reverse="true" style="
-                    --width: 300px;
-                    --height: 300px;
-                    --quantity: 9;
-                    --gap: 10px;
-                    ">
-                    <div class="list">
-                        <div class="item" style="--position: 1"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 2"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 3"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 4"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 5"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 6"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 7"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 8"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 9"><img src="https://placehold.co/300" alt=""></div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="scroller-section">
-                <h2 style="display:block;">Partner universities</h2>
-                <div class="slider" reverse="true" style="
-                    --width: 300px;
-                    --height: 300px;
-                    --quantity: 9;
-                    --gap: 10px;
-                    ">
-                    <div class="list">
-                        <div class="item" style="--position: 1"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 2"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 3"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 4"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 5"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 6"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 7"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 8"><img src="https://placehold.co/300" alt=""></div>
-                        <div class="item" style="--position: 9"><img src="https://placehold.co/300" alt=""></div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div id="hero-3" class="hero-section">Hero Section 3</div>
-        <div id="hero-4" class="hero-section">Hero Section 4</div>
-        <div id="hero-5" class="hero-section">Hero Section 5</div>
-        <div id="hero-6" class="hero-section">Hero Section 6</div>
-
-        <script>
-        const highlight = document.querySelector('.grid-highlight');
-        const gradientSize = 150;
-
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX ? e.clientX  : 0;
-            const y = e.clientY ? e.clientY  : 0;
-            highlight.style.maskImage = `radial-gradient(circle ${gradientSize}px at ${x}px ${y}px, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 80%)`;
-            highlight.style.webkitMaskImage = `radial-gradient(circle ${gradientSize}px at ${x}px ${y}px, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 80%)`;
-        });
-
-        document.addEventListener('touchmove', (e) => {
-            e.preventDefault();
-            const touch = e.touches[0];
-            const x = touch.clientX;
-            const y = touch.clientY;
-            highlight.style.maskImage = `radial-gradient(circle ${gradientSize}px at ${x}px ${y}px, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 80%)`;
-            highlight.style.webkitMaskImage = `radial-gradient(circle ${gradientSize}px at ${x}px ${y}px, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 80%)`;
-        }, { passive: false });
         </script>
+
+        </div>
+
     </body>
 </html>
-
